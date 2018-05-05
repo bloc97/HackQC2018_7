@@ -5,10 +5,7 @@
  */
 package net.hack.fxinterfaceproject;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.web.WebEngine;
@@ -30,6 +27,9 @@ public class MapInfo extends Pane {
         VBox root = new VBox();
         root.setPadding(new Insets(5));
         root.setSpacing(5);
+        root.setPrefSize(1300, 550);
+        root.setLayoutX(100);
+        root.setLayoutY(250);
         root.getChildren().addAll(browser);
         this.getChildren().add(root);
     }

@@ -38,8 +38,7 @@ public class FxInterfaceProject extends Application {
         RightTree rightTree = new RightTree();
         RightTemp rightTemp = new RightTemp();
         Left left = new Left(rightAir,rightTree,rightTemp);
-        root.getChildren().add(rightAir);
-        root.getChildren().addAll(top,right,left,rightTree,rightTemp);
+        root.getChildren().addAll(top,right,left,rightAir,rightTree,rightTemp);
         
         top.setLayoutX(0);
         top.setLayoutY(0);
