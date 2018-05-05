@@ -14,9 +14,19 @@ import javax.swing.JFrame;
  */
 public class MainWindow extends JFrame {
 
+    MainPanel mainPanel = new MainPanel();
+    
     public MainWindow() throws HeadlessException {
+        
+       // this.setUndecorated(true);
+        
         this.setSize(1600, 900);
         this.setVisible(true);
+        this.add(mainPanel);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setResizable(false);
+        
+        
     }
     
     

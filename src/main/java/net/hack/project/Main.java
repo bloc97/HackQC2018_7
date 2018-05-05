@@ -31,6 +31,8 @@ public class Main {
         System.out.println(station);
         System.out.println(station.getData(Station.Pollutant.PM));
         
+        MainWindow mainWindow = new MainWindow();
+        
     }
     
 }
