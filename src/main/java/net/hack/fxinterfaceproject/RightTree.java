@@ -13,8 +13,12 @@ public class RightTree extends Right {
 
     public RightTree() {
         super();
+        InfoTree infoTree = new InfoTree();
         this.setVisible(false);
-        this.setStyle("-fx-background-color: #1F1F3F;");
+        this.setStyle("-fx-background-color: #1F1F1F;");
+        infoTree.setLayoutY(50);
+        infoTree.setLayoutX(130);
+        this.getChildren().add(infoTree);
     }
     
     

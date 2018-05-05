@@ -38,7 +38,7 @@ public class Top extends Pane {
         Image mini = new Image(ClassLoader.getSystemResourceAsStream("mini.png"));
         Image mini1 = new Image(ClassLoader.getSystemResourceAsStream("mini1.png"));
         
-         title.setFont(Font.font("Abel", FontWeight.BOLD, 48));
+         title.setFont(Font.font("verdana", FontWeight.BOLD, 48));
          title.setTextFill(Color.web("#6ED0E0"));
         
          this.setOnMousePressed(new EventHandler<MouseEvent>() {
