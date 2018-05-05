@@ -31,6 +31,8 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.LinkedList;
+import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -88,5 +90,31 @@ public interface HttpUtils {
         reader.close();
         connection.disconnect();
         return output;
+    }
+
+    public static List<String> parseCsvLine(String string) {
+        boolean isInQuote = false;
+        String currentString = "";
+        LinkedList<String> stringList = new LinkedList<>();
+        for (char c : string.toCharArray()) {
+            if (isInQuote) {
+                if (c == '"') {
+                    isInQuote = false;
+                } else {
+                    currentString += c;
+                }
+            } else {
+                if (c == ',') {
+                    stringList.add(currentString);
+                    currentString = "";
+                } else if (c == '"') {
+                    isInQuote = true;
+                } else {
+                    currentString += c;
+                }
+            }
+        }
+        stringList.add(currentString);
+        return stringList;
     }
 }

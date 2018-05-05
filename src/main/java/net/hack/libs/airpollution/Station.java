@@ -35,6 +35,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import net.hack.libs.HttpUtils;
 
 /**
  *
@@ -52,7 +53,7 @@ public class Station {
         try {
             Path infoPath = Paths.get(INFOURL);
             Files.lines(infoPath).forEachOrdered((s) -> {
-                List<String> infoList = parseCsvLine(s);
+                List<String> infoList = HttpUtils.parseCsvLine(s);
                 try {
                     int id = Integer.parseInt(infoList.get(0));
                     info.put(id, infoList.toArray(new String[0]));
@@ -63,32 +64,6 @@ public class Station {
         }
     }
     
-    private static List<String> parseCsvLine(String string) {
-        boolean isInQuote = false;
-        String currentString = "";
-        LinkedList<String> stringList = new LinkedList<>();
-        
-        for (char c : string.toCharArray()) {
-            if (isInQuote) {
-                if (c == '"') {
-                    isInQuote = false;
-                } else {
-                    currentString += c;
-                }
-            } else {
-                if (c == ',') {
-                    stringList.add(currentString);
-                    currentString = "";
-                } else if (c == '"') {
-                    isInQuote = true;
-                } else {
-                    currentString += c;
-                }
-            }
-        }
-        stringList.add(currentString);
-        return stringList;
-    }
     
     /**
      * Available pollutants.

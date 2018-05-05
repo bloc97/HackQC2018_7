@@ -8,6 +8,12 @@ package net.hack.fxinterfaceproject;
 import static java.lang.Integer.max;
 import static java.lang.Integer.min;
 import java.util.Random;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 /**
  *
@@ -30,19 +36,88 @@ public class RightAir extends Right{
         String[][] array = new String[100][100];
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[0].length; j++) {
-//                String color = "#"+Integer.toString(random.nextInt(max - min + 1) + min)
-//                        +Integer.toString(random.nextInt(max - min + 1) + min)
-//                        +Integer.toString(random.nextInt(max - min + 1) + min)
-//                        +Integer.toString(random.nextInt(max - min + 1) + min)
-//                        +Integer.toString(random.nextInt(max - min + 1) + min)
-//                        +Integer.toString(random.nextInt(max - min + 1) + min);
                 
-                String color = new String("#FFFFFF");
+                String color = "#"+Integer.toString(random.nextInt(max - min + 1) + min)
+                        +Integer.toString(random.nextInt(max - min + 1) + min)
+                        +Integer.toString(random.nextInt(max - min + 1) + min)
+                        +Integer.toString(random.nextInt(max - min + 1) + min)
+                        +Integer.toString(random.nextInt(max - min + 1) + min)
+                        +Integer.toString(random.nextInt(max - min + 1) + min);
+                
+            //    String color = new String("#FFFFFF");
                 array[i][j] = color;
             }
         }
         Grapher2D grapher = new Grapher2D(array);
         this.getChildren().add(grapher);
+        
+        Image cancel = new Image(ClassLoader.getSystemResourceAsStream("cancel.png"));
+        Image cancel1 = new Image(ClassLoader.getSystemResourceAsStream("cancel1.png"));
+        
+        Button buttonBig = new Button("");
+        Button buttonSma = new Button("");
+        //<editor-fold defaultstate="collapsed" desc="buttonBig">
+        buttonBig.setMaxSize(50, 50);
+        buttonBig.setStyle("-fx-background-color: transparent;");
+        buttonBig.setGraphic(new ImageView(cancel));
+        buttonBig.setOnAction(new EventHandler<ActionEvent>() {
+            // boolean isCancel = true;
+            @Override
+            public void handle(ActionEvent e) {
+
+                
+
+            }
+
+        });
+
+        buttonBig.addEventHandler(MouseEvent.MOUSE_ENTERED,
+                new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent e) {
+                        buttonBig.setGraphic(new ImageView(cancel1));
+                    }
+                });
+
+        buttonBig.addEventHandler(MouseEvent.MOUSE_EXITED,
+                new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent e) {
+                        buttonBig.setGraphic(new ImageView(cancel));  
+                    }
+                });
+        //</editor-fold>
+        //<editor-fold defaultstate="collapsed" desc="buttonSma">
+        buttonSma.setMaxSize(50, 50);
+        buttonSma.setStyle("-fx-background-color: transparent;");
+        buttonSma.setGraphic(new ImageView(cancel));
+        buttonSma.setOnAction(new EventHandler<ActionEvent>() {
+            // boolean isCancel = true;
+            @Override
+            public void handle(ActionEvent e) {
+
+              
+
+            }
+
+        });
+
+        buttonSma.addEventHandler(MouseEvent.MOUSE_ENTERED,
+                new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent e) {
+                        buttonSma.setGraphic(new ImageView(cancel1));
+                    }
+                });
+
+        buttonSma.addEventHandler(MouseEvent.MOUSE_EXITED,
+                new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent e) {
+                        buttonSma.setGraphic(new ImageView(cancel));  
+                    }
+                });
+        //</editor-fold>
         
 
         infoAir.setLayoutY(50);
