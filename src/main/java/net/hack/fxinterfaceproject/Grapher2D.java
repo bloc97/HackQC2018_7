@@ -24,13 +24,16 @@ public class Grapher2D extends Pane {
     
     private static double xOffset = 0;
     private static double yOffset = 0;
-
+    
+    final Canvas canvas = new Canvas(1500, 850);
+    GraphicsContext gc = canvas.getGraphicsContext2D();
+    String[][] arrayLocal;
+    
     public Grapher2D(String[][] array) {
-        
+        arrayLocal = array;
         
 
-        final Canvas canvas = new Canvas(1500, 850);
-        GraphicsContext gc = canvas.getGraphicsContext2D();
+        
        //gc.setFill(Color.web("#0000FF"));
        // gc.setFill(Color.BLUE);
        // gc.fillRect(75,75,1,1);
@@ -39,7 +42,7 @@ public class Grapher2D extends Pane {
             for (int j = 0; j < array[0].length; j++) {
                 
                 gc.setFill(Color.web(array[i][j]));
-                gc.fillRect(i,j,1,1);
+                gc.fillRect(i*1,j*1,1,1);
             }
         }
         
@@ -72,5 +75,16 @@ public class Grapher2D extends Pane {
         this.setVisible(true);
         this.setPrefSize(1500, 850);
     }
+    
+    public void grapheArray(int magnRate) {
+        for (int i = 0; i < arrayLocal.length; i++) {
+            for (int j = 0; j < arrayLocal[0].length; j++) {
+                
+                gc.setFill(Color.web(arrayLocal[i][j]));
+                gc.fillRect(i*magnRate,j*magnRate,magnRate,magnRate);
+            }
+        }
+    }
+            
     
 }
