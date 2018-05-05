@@ -22,7 +22,7 @@ public class Left extends Pane{
     Button buttonTwo = new Button("");
     Button buttonThree = new Button("");
 
-    public Left() {
+    public Left(RightAir rightAir, RightTree rightTree, RightTemp rightTemp) {
         //consulte les codes dans Top.java
         
         Image air = new Image(ClassLoader.getSystemResourceAsStream("air.png"));
@@ -36,11 +36,23 @@ public class Left extends Pane{
         
  
         
+        
         //<editor-fold defaultstate="collapsed" desc="buttonOne">
         buttonOne.setMaxSize(100, 100);
         buttonOne.setStyle("-fx-background-color: transparent;");
         buttonOne.setGraphic(new ImageView(air));
         
+        buttonOne.setOnMousePressed(new EventHandler<MouseEvent>() {
+            
+            @Override
+            public void handle(MouseEvent event) {
+                rightAir.setVisible(true);
+                rightTree.setVisible(false);
+                rightTemp.setVisible(false);
+                System.out.println("Triggered");
+            }
+            
+        });
         buttonOne.addEventHandler(MouseEvent.MOUSE_ENTERED,
                 new EventHandler<MouseEvent>() {
                     @Override
@@ -64,6 +76,16 @@ public class Left extends Pane{
         buttonTwo.setStyle("-fx-background-color: transparent;");
         buttonTwo.setGraphic(new ImageView(arbre));
         
+        buttonTwo.setOnMousePressed(new EventHandler<MouseEvent>() {
+            
+            @Override
+            public void handle(MouseEvent event) {
+                rightAir.setVisible(false);
+                rightTree.setVisible(true);
+                rightTemp.setVisible(false);
+            }
+            
+        });
         buttonTwo.addEventHandler(MouseEvent.MOUSE_ENTERED,
                 new EventHandler<MouseEvent>() {
                     @Override
@@ -86,6 +108,16 @@ public class Left extends Pane{
         buttonThree.setStyle("-fx-background-color: transparent;");
         buttonThree.setGraphic(new ImageView(temperature));
         
+        buttonThree.setOnMousePressed(new EventHandler<MouseEvent>() {
+            
+            @Override
+            public void handle(MouseEvent event) {
+                rightAir.setVisible(false);
+                rightTree.setVisible(false);
+                rightTemp.setVisible(true);
+            }
+            
+        });
         buttonThree.addEventHandler(MouseEvent.MOUSE_ENTERED,
                 new EventHandler<MouseEvent>() {
                     @Override

@@ -27,6 +27,9 @@ public class Top extends Pane {
     Label title = new Label("HackQc18");
     Button buttonCancel = new Button("");
     Button buttonMini = new Button("");
+    
+    private static double xOffset = 0;
+    private static double yOffset = 0;
 
     public Top(Stage primaryStage) {
 
@@ -38,6 +41,24 @@ public class Top extends Pane {
          title.setFont(Font.font("Abel", FontWeight.BOLD, 48));
          title.setTextFill(Color.web("#6ED0E0"));
         
+         this.setOnMousePressed(new EventHandler<MouseEvent>() {
+            
+            @Override
+            public void handle(MouseEvent event) {
+                xOffset = primaryStage.getX() - event.getScreenX();
+                yOffset = primaryStage.getY() - event.getScreenY();
+            }
+            
+        });
+        
+        this.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                primaryStage.setX(event.getScreenX() + xOffset);
+                primaryStage.setY(event.getScreenY() + yOffset);
+            }
+        });
+         
         //<editor-fold defaultstate="collapsed" desc="buttonCancel">
         buttonCancel.setMaxSize(50, 50);
         buttonCancel.setStyle("-fx-background-color: transparent;");
@@ -111,8 +132,8 @@ public class Top extends Pane {
         this.getChildren().add(buttonMini);
         this.getChildren().add(title);
         
-        this.setMaxSize(1600, 100); //Était 1600, 100
-        this.setPrefSize(1600, 100);//Était 1600, 100
+        this.setMaxSize(1600, 70); //Était 1600, 100
+        this.setPrefSize(1600, 70);//Était 1600, 100
         this.setStyle("-fx-background-color: #333333;");
         //A8D08A vert pale
         //A0C19C vert fonce

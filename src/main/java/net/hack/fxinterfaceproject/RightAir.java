@@ -5,15 +5,14 @@
  */
 package net.hack.fxinterfaceproject;
 
-import javafx.scene.layout.Pane;
-
 /**
  *
  * @author panbe
  */
-public class Right extends Pane {
+public class RightAir extends Right{
 
-    public Right() {
+    public RightAir() {
+        this.setVisible(false);
         this.setLayoutX(100);
         this.setLayoutY(FinaleMaster.TOP_VGAP);
         this.setMaxSize(1500, 850);//Était 1500 850

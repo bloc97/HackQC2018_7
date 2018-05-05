@@ -25,29 +25,27 @@ public class FxInterfaceProject extends Application {
     public void start(Stage primaryStage) {
         primaryStage.initStyle(StageStyle.UNDECORATED);
         
-        Button btn = new Button();
-        btn.setText("Say 'Hello World'");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-            
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Hello World!");
-            }
-        });
+        
         
         Pane root = new Pane();
         //root.getChildren().add(btn);
         
         Top top = new Top(primaryStage);
         Right right = new Right();
-        Left left = new Left();
-        root.getChildren().addAll(top,right,left);
+        right.setVisible(false);
+        
+        RightAir rightAir = new RightAir();
+        RightTree rightTree = new RightTree();
+        RightTemp rightTemp = new RightTemp();
+        Left left = new Left(rightAir,rightTree,rightTemp);
+        root.getChildren().addAll(top,right,left,rightAir,rightTree,rightTemp);
+        
         top.setLayoutX(0);
         top.setLayoutY(0);
-        right.setLayoutX(100);
-        right.setLayoutY(100);
+//        right.setLayoutX(100);
+//        right.setLayoutY(FinaleMaster.TOP_VGAP);
         left.setLayoutX(0);
-        left.setLayoutY(100);
+        left.setLayoutY(FinaleMaster.TOP_VGAP);
         root.setMaxSize(1600, 900);
         
         
