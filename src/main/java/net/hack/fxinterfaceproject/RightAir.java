@@ -12,11 +12,8 @@ package net.hack.fxinterfaceproject;
 public class RightAir extends Right{
 
     public RightAir() {
+        super();
         this.setVisible(false);
-        this.setLayoutX(100);
-        this.setLayoutY(FinaleMaster.TOP_VGAP);
-        this.setMaxSize(1500, 850);//Était 1500 850
-        this.setPrefSize(1500, 850);//Était 1500 850
         this.setStyle("-fx-background-color: #1F1F1F;");
     }
     

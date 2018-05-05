@@ -42,17 +42,12 @@ public class FxInterfaceProject extends Application {
         
         top.setLayoutX(0);
         top.setLayoutY(0);
-//        right.setLayoutX(100);
-//        right.setLayoutY(FinaleMaster.TOP_VGAP);
         left.setLayoutX(0);
         left.setLayoutY(FinaleMaster.TOP_VGAP);
         root.setMaxSize(1600, 900);
-        
-        
-        
+
         Scene scene = new Scene(root, 1600, 900);
         
-        primaryStage.setTitle("Hello World!");
         primaryStage.setScene(scene);
         primaryStage.show();
         

@@ -14,7 +14,7 @@ import javafx.scene.layout.Pane;
 public class Right extends Pane {
 
     public Right() {
-        this.setLayoutX(100);
+        this.setLayoutX(115);
         this.setLayoutY(FinaleMaster.TOP_VGAP);
         this.setMaxSize(1500, 850);//Était 1500 850
         this.setPrefSize(1500, 850);//Était 1500 850
