@@ -6,6 +6,7 @@
 package net.hack.fxinterfaceproject;
 
 import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
 /**
@@ -27,6 +28,7 @@ public class RightTree extends Right {
         titreEtude.setFont(Font.font("verdana", 40));
         titreEtude.setLayoutY(20);
         titreEtude.setLayoutX(40);
+        titreEtude.setTextFill(Color.web("#FFE700"));
         this.getChildren().add(titreEtude);
         this.getChildren().add(mapInfo);
         this.getChildren().add(infoTree);
