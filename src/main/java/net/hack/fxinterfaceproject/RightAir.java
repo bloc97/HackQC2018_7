@@ -5,15 +5,21 @@
  */
 package net.hack.fxinterfaceproject;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import static java.lang.Integer.max;
 import static java.lang.Integer.min;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -29,6 +35,12 @@ public class RightAir extends Right{
 
         
         
+        Image image = new Image(ClassLoader.getSystemClassLoader().getResourceAsStream("chaleur_3000_17438_24241.png"));
+        Grapher2D grapher = new Grapher2D(image);
+        this.getChildren().add(grapher);
+        
+        
+        /*
         Random random = new Random(0);
         int min = 0;
         int max = 9;
@@ -50,6 +62,7 @@ public class RightAir extends Right{
         }
         Grapher2D grapher = new Grapher2D(array);
         this.getChildren().add(grapher);
+        */
         
         Image cancel = new Image(ClassLoader.getSystemResourceAsStream("cancel.png"));
         Image cancel1 = new Image(ClassLoader.getSystemResourceAsStream("cancel1.png"));
