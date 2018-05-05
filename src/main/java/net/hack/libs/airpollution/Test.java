@@ -18,7 +18,7 @@ public class Test {
      * @throws java.io.IOException
      */
     public static void main(String[] args) throws IOException {
-        
+        /*
         Pair<Double, Double> pair1 = GeoUtils.polarToLambertConic(-0.7d, 0.2d, 0, 0, 0.05d, 0.15d);
         Pair<Double, Double> pair2 = GeoUtils.lambertConicToPolar(pair1.getKey(), pair1.getValue(), 0, 0, 0.05d, 0.15d);
         
@@ -50,10 +50,10 @@ public class Test {
         System.out.println(image.getWidth());
 
         //System.out.println(pair2.getKey() + " " + pair2.getValue());
-        /*
+        */
         AirPollutionAPI aapi = new AirPollutionAPI();
         
-        DayData data = aapi.getDay(13, 10, 25);
+        DayData data = aapi.getDay();
         System.out.println(data);
         System.out.println(data.getStationList());
         
@@ -64,6 +64,6 @@ public class Test {
                 System.out.println(p + ": " + Station.convert(data.getStationList().get(0).getData(p).getLast(), Station.Unit.AQI, p));
             }
         }
-        */
+        
     }
 }

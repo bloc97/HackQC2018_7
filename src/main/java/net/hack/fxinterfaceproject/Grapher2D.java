@@ -26,8 +26,13 @@ import javafx.scene.layout.Pane;
  */
 public class Grapher2D extends Pane {
     
-    private static double lastX = 0;
-    private static double lastY = 0;
+    private double lastX = 0;
+    private double lastY = 0;
+    private double oX = 0;
+    private double oY = 0;
+    
+    private double mouseX = 0;
+    private double mouseY = 0;
     
     private final Canvas canvas;
     private GraphicsContext gc;
@@ -50,12 +55,18 @@ public class Grapher2D extends Pane {
         
         this.getChildren().add(canvas);
         
+        canvas.setOnMouseMoved((event) -> {
+            mouseX = event.getX();
+            mouseY = event.getY();
+        });
+        
         this.setOnMousePressed(new EventHandler<MouseEvent>() {
             
             @Override
             public void handle(MouseEvent event) {
                 lastX = event.getScreenX();
                 lastY = event.getScreenY();
+                
             }
             
         });
@@ -67,11 +78,14 @@ public class Grapher2D extends Pane {
                 
                 //thisPane.setLayoutX(event.getScreenX() + xOffset);
                 //thisPane.setLayoutY(event.getScreenY() + yOffset);
-                gc.translate(event.getScreenX() - lastX, event.getScreenY() - lastY);
+                double offsetX = event.getScreenX() - lastX;
+                double offsetY = event.getScreenY() - lastY;
+                canvas.setTranslateX(oX);
+                canvas.setTranslateY(oY);
                 lastX = event.getScreenX();
                 lastY = event.getScreenY();
-                
-                
+                oX += offsetX;
+                oY += offsetY;
             }
         });
         
@@ -102,7 +116,7 @@ public class Grapher2D extends Pane {
             }
         }
     }*/
-    public static void zoom(Node node, double factor, double x, double y) {
+    public void zoom(Node node, double factor, double x, double y) {
         double oldScale = node.getScaleX();
         double scale = oldScale * factor;
         if (scale < 0.05) scale = 0.05;
@@ -114,15 +128,18 @@ public class Grapher2D extends Pane {
         Bounds bounds = node.localToScene(node.getBoundsInLocal());
         double dx = (x - (bounds.getWidth()/2 + bounds.getMinX()));
         double dy = (y - (bounds.getHeight()/2 + bounds.getMinY()));
-
-        node.setTranslateX(node.getTranslateX()-f*dx);
-        node.setTranslateY(node.getTranslateY()-f*dy);
+        
+        oX = node.getTranslateX()-f*dx;
+        oY = node.getTranslateY()-f*dy;
+        
+        node.setTranslateX(oX);
+        node.setTranslateY(oY);
     }
 
-    public static void zoom(Node node, ScrollEvent event) {
+    public void zoom(Node node, ScrollEvent event) {
         zoom(node, Math.pow(1.01, event.getDeltaY()), event.getSceneX(), event.getSceneY());
     }
-    public static void zoom(Node node, ZoomEvent event) {
+    public void zoom(Node node, ZoomEvent event) {
         zoom(node, event.getZoomFactor(), event.getSceneX(), event.getSceneY());
     }
     
