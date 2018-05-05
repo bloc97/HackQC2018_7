@@ -17,8 +17,10 @@ public class RightAir extends Right{
 
     public RightAir() {
         super();
+        InfoAir infoAir = new InfoAir();
         this.setVisible(false);
         this.setStyle("-fx-background-color: #1F1F1F;");
+<<<<<<< HEAD
         
         
         Random random = new Random(0);
@@ -42,6 +44,11 @@ public class RightAir extends Right{
         Grapher2D grapher = new Grapher2D(array);
         this.getChildren().add(grapher);
         
+=======
+        infoAir.setLayoutY(50);
+        infoAir.setLayoutX(130);
+        this.getChildren().add(infoAir);
+>>>>>>> origin/master
     }
     
     
