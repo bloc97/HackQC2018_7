@@ -18,8 +18,11 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
 import javax.imageio.ImageIO;
+import net.hack.libs.airpollution.DayData;
+import net.hack.libs.airpollution.Station;
 
 /**
  *
@@ -27,6 +30,27 @@ import javax.imageio.ImageIO;
  */
 public class RightAir extends Right{
 
+    
+    public static Station getClosestStation(double latitude, double longitude, DayData data) {
+        double distance = Double.POSITIVE_INFINITY;
+        Station closestStation = null;
+        
+        for (Station s : data.getStationList()) {
+            double diffLat = s.getLatitude() - latitude;
+            double diffLong = s.getLongitude() - longitude;
+            
+            double distanceSqr = diffLat * diffLat + diffLong * diffLong;
+            
+            if (distanceSqr < distance) {
+                distance = distanceSqr;
+                closestStation = s;
+            }
+            
+        }
+        
+        return closestStation;
+    }
+    
     public RightAir() {
         super();
         InfoAir infoAir = new InfoAir();
@@ -36,8 +60,12 @@ public class RightAir extends Right{
         
         
         Image image = new Image(ClassLoader.getSystemClassLoader().getResourceAsStream("chaleur_3000_17438_24241.png"));
+        Image image2 = new WritableImage
+        
+        
         Grapher2D grapher = new Grapher2D(image);
         this.getChildren().add(grapher);
+        
         
         
         /*

@@ -31,6 +31,9 @@ public class Grapher2D extends Pane {
     private double oX = 0;
     private double oY = 0;
     
+    private double mouseX = 0;
+    private double mouseY = 0;
+    
     private final Canvas canvas;
     private GraphicsContext gc;
     Image image;
@@ -51,6 +54,11 @@ public class Grapher2D extends Pane {
         Pane thisPane = this;
         
         this.getChildren().add(canvas);
+        
+        canvas.setOnMouseMoved((event) -> {
+            mouseX = event.getX();
+            mouseY = event.getY();
+        });
         
         this.setOnMousePressed(new EventHandler<MouseEvent>() {
             
