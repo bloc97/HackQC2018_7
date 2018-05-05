@@ -6,7 +6,6 @@
 package net.hack.fxinterfaceproject;
 
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -14,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
@@ -36,7 +36,7 @@ public class Top extends Pane {
         Image mini1 = new Image(ClassLoader.getSystemResourceAsStream("mini1.png"));
         
          title.setFont(Font.font("Abel", FontWeight.BOLD, 48));
-        
+         title.setTextFill(Color.web("#6ED0E0"));
         
         //<editor-fold defaultstate="collapsed" desc="buttonCancel">
         buttonCancel.setMaxSize(50, 50);
@@ -113,7 +113,7 @@ public class Top extends Pane {
         
         this.setMaxSize(1600, 100); //Était 1600, 100
         this.setPrefSize(1600, 100);//Était 1600, 100
-        this.setStyle("-fx-background-color: #ECD275;");
+        this.setStyle("-fx-background-color: #333333;");
         //A8D08A vert pale
         //A0C19C vert fonce
     }

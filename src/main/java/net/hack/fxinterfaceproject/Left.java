@@ -114,7 +114,7 @@ public class Left extends Pane{
          
         this.setMaxSize(115, 850);
         this.setPrefSize(115, 850);
-        this.setStyle("-fx-background-color: #A0C19C;");
+        this.setStyle("-fx-background-color: #4D4D4D;");
         
     }
     

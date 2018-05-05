@@ -17,7 +17,7 @@ public class Right extends Pane {
         
         this.setMaxSize(1500, 850);//Était 1500 850
         this.setPrefSize(1500, 850);//Était 1500 850
-        this.setStyle("-fx-background-color: #A8D08A;");
+        this.setStyle("-fx-background-color: #1F1F1F;");
     }
     
     
