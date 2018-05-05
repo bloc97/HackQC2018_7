@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fxinterfaceproject;
+package net.hack.fxinterfaceproject;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -30,10 +30,10 @@ public class Top extends Pane {
 
     public Top(Stage primaryStage) {
 
-        Image cancel = new Image(getClass().getResourceAsStream("cancel.png"));
-        Image cancel1 = new Image(getClass().getResourceAsStream("cancel1.png"));
-        Image mini = new Image(getClass().getResourceAsStream("mini.png"));
-        Image mini1 = new Image(getClass().getResourceAsStream("mini1.png"));
+        Image cancel = new Image(ClassLoader.getSystemResourceAsStream("cancel.png"));
+        Image cancel1 = new Image(ClassLoader.getSystemResourceAsStream("cancel1.png"));
+        Image mini = new Image(ClassLoader.getSystemResourceAsStream("mini.png"));
+        Image mini1 = new Image(ClassLoader.getSystemResourceAsStream("mini1.png"));
         
          title.setFont(Font.font("Abel", FontWeight.BOLD, 48));
         

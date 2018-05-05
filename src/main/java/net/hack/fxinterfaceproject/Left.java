@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fxinterfaceproject;
+package net.hack.fxinterfaceproject;
 
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -25,14 +25,14 @@ public class Left extends Pane{
     public Left() {
         //consulte les codes dans Top.java
         
-        Image air = new Image(getClass().getResourceAsStream("air.png"));
-        Image air1 = new Image(getClass().getResourceAsStream("air1.png"));
+        Image air = new Image(ClassLoader.getSystemResourceAsStream("air.png"));
+        Image air1 = new Image(ClassLoader.getSystemResourceAsStream("air1.png"));
         
-        Image arbre = new Image(getClass().getResourceAsStream("arbre.png"));
-        Image arbre1 = new Image(getClass().getResourceAsStream("arbre1.png"));
+        Image arbre = new Image(ClassLoader.getSystemResourceAsStream("arbre.png"));
+        Image arbre1 = new Image(ClassLoader.getSystemResourceAsStream("arbre1.png"));
         
-        Image temperature = new Image(getClass().getResourceAsStream("temperature.png"));
-        Image temperature1 = new Image(getClass().getResourceAsStream("temperature1.png"));
+        Image temperature = new Image(ClassLoader.getSystemResourceAsStream("temperature.png"));
+        Image temperature1 = new Image(ClassLoader.getSystemResourceAsStream("temperature1.png"));
         
  
         
