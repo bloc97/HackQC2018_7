@@ -22,7 +22,7 @@ public class MainWindow extends JFrame {
         
         this.setSize(1600, 900);
         this.setVisible(true);
-        this.add(mainPanel);
+        //this.add(mainPanel);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
         
