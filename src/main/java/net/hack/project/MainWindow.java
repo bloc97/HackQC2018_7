@@ -14,7 +14,8 @@ import javax.swing.JFrame;
  */
 public class MainWindow extends JFrame {
 
-    MainPanel mainPanel = new MainPanel();
+    //MainPanel mainPanel = new MainPanel();
+    PanelDecorationFile panelDecoration = new PanelDecorationFile();
     
     public MainWindow() throws HeadlessException {
         
@@ -23,6 +24,7 @@ public class MainWindow extends JFrame {
         this.setSize(1600, 900);
         this.setVisible(true);
         //this.add(mainPanel);
+        this.add(panelDecoration);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
         
