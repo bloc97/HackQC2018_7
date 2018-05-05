@@ -27,9 +27,9 @@ public class MapInfo extends Pane {
         VBox root = new VBox();
         root.setPadding(new Insets(5));
         root.setSpacing(5);
-        root.setPrefSize(1300, 550);
-        root.setLayoutX(100);
-        root.setLayoutY(250);
+        root.setPrefSize(1400,650);
+        root.setLayoutX(40);
+        root.setLayoutY(200);
         root.getChildren().addAll(browser);
         this.getChildren().add(root);
     }
