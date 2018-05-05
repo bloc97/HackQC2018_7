@@ -35,7 +35,7 @@ public class MainPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(139, 207, 87));
+        setBackground(new java.awt.Color(168, 208, 138));
 
         jPanel3.setBackground(new java.awt.Color(168, 208, 138));
 
@@ -43,7 +43,7 @@ public class MainPanel extends javax.swing.JPanel {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1763, Short.MAX_VALUE)
+            .addGap(0, 1936, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
