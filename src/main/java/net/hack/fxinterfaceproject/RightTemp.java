@@ -13,10 +13,10 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import net.hack.libs.MontrealUtils;
 import net.hack.libs.airpollution.AirPollutionAPI;
 import net.hack.libs.airpollution.DayData;
 import net.hack.libs.airpollution.Station;
@@ -30,7 +30,8 @@ public class RightTemp extends Right {
     static int  counter = 1;
     Label titreEtude = new Label("QUANTITÉ DE POLLUANTS DANS L'AIR");
     Label choix = new Label("Choix de secteur: ");
-    ComboBox cb = new ComboBox();
+    //ComboBox cb = new ComboBox();
+    Label l = new Label("None");
     static Tile tile = new Tile(Tile.SkinType.DONUT_CHART);
     static Tile tileSmoothedChar;
     //po
@@ -40,7 +41,7 @@ public class RightTemp extends Right {
         super();
         InfoAir infoAir = new InfoAir();
         MapInfoAir mapInfoAir = new MapInfoAir();
-
+/*
         cb.getItems().add("Aéroport de Montréal Dorval");
         cb.getItems().add("Caserne 17");
         cb.getItems().add("Chénier");
@@ -51,9 +52,13 @@ public class RightTemp extends Right {
         cb.getItems().add("Sainte-Anne-de-Bellevue");
         cb.getItems().add("Saint-Jean-Baptiste");
 
-        cb.setStyle("-fx-background-color: white;");
-        cb.setLayoutX(1200);
-        cb.setLayoutY(360);
+        cb.setStyle("-fx-background-color: white;");*/
+        l.setLayoutX(900);
+        l.setLayoutY(360 + 40);
+        //l.setStyle("-fx-background-color: white;");
+        l.setStyle("-fx-color: white;");
+        l.setTextFill(Color.WHITE);
+        l.setFont(Font.font("verdana", 24));
         
         XYChart.Series<String, Number> series1 = new XYChart.Series();
         series1.setName("O3 dans l'air durant la semaine");
@@ -79,21 +84,27 @@ public class RightTemp extends Right {
         tile.addChartData(new ChartData("PM", 82, Color.DARKORANGE));
         tile.addChartData(new ChartData("NONE", 120, Color.BLACK));
 
-        cb.setOnAction((e) -> {
-           
+        
+        mapInfoAir.root.canvas.setOnMouseClicked((event) -> {
+            int x = (int)event.getX();
+            int y = (int)event.getY();
+            int id = MontrealUtils.quartierImage.getPixelReader().getArgb(x, y) & (0xFF);
+            
+            l.setText(MontrealUtils.quartiers.getOrDefault(id, "None"));
+            
             String region;
-            region = cb.getValue().toString();
+            region = l.toString();
             int indice = 0;
             
              
             //Tile tile2 = new Tile(Tile.SkinType.DONUT_CHART);
-             tile.clearChartData();
-             tile.addChartData(new ChartData("CO", Math.random(), Color.DARKGRAY));
-             tile.addChartData(new ChartData("SO2", Math.random(), Color.DARKVIOLET));
-             tile.addChartData(new ChartData("NO2", Math.random(), Color.DARKSLATEBLUE));
-             tile.addChartData(new ChartData("PM", Math.random(), Color.DARKORANGE));
-             tile.addChartData(new ChartData("O3", Math.random()*2 +23, Color.BLACK));
              
+                tile.clearChartData();
+                tile.addChartData(new ChartData("CO", Math.random(), Color.DARKGRAY));
+                tile.addChartData(new ChartData("SO2", Math.random(), Color.DARKVIOLET));
+                tile.addChartData(new ChartData("NO2", Math.random(), Color.DARKSLATEBLUE));
+                tile.addChartData(new ChartData("PM", Math.random(), Color.DARKORANGE));
+                tile.addChartData(new ChartData("O3", Math.random()*2 +23, Color.BLACK));
             tileSmoothedChar.clearChartData();
             series1.getData().add(new XYChart.Data("L", Math.random()*2 +23));
             series1.getData().add(new XYChart.Data("Ma",Math.random()*2 +23));
@@ -102,111 +113,17 @@ public class RightTemp extends Right {
             series1.getData().add(new XYChart.Data("V", Math.random()*2 +23));
             series1.getData().add(new XYChart.Data("S", Math.random()*2 +23));
             series1.getData().add(new XYChart.Data("D", Math.random()*2 +23));
-             
-             
-           /* switch (region) {
-                case ("Aéroport de Montréal Dorval"):
-                    indice = 7;
-                    break;
-                case ("Caserne 17"):
-                    indice = 2;
-                    break;
-                case ("Chénier"):
-                    indice = 1;
-                    break;
-                case ("Échangeur Décarie"):
-                    indice = 3;
-                    break;
-                case ("Hochelaga-Maisonneuve"):
-                    indice = 5;
-                    break;
-                case ("Rivière-des-Prairies"):
-                    indice = 6;
-                    break;
-                case ("Rosemont/La Petite-Patrie"):
-                    indice = 8;
-                    break;
-                case ("Sainte-Anne-de-Bellevue"):
-                    indice = 9;
-                    break;
-                case ("Saint-Jean-Baptiste"):
-                    indice = 0;
-                    break;
-
-            }
-            
-           */
-            //this.getChildren().add(tile2);
-            //tile = tile2;
-            
-            
-        });
-        
-        
-            
-            
-            /*
-             tileSmoothedChar = TileBuilder.create()
-                .prefSize(400, 300)
-                .skinType(Tile.SkinType.SMOOTHED_CHART)
-                .chartType(ChartType.AREA)
-                .series(series1)
-                .build();
-            
-            DayData data = null;
+            /*DayData data;
             try {
-            double poO3;
-            XYChart.Series<String, Number> seriesO3 = new XYChart.Series();
-            seriesO3.setName("O3 dans l'air durant la semaine");
-            data = aapi.getDay(18,05,06);
-            poO3 = Station.convert(data.getStationList().get(indice).getData(Station.Pollutant.O3).getLast(), Station.Unit.AQI, Station.Pollutant.O3);
-            seriesO3.getData().add(new XYChart.Data("06", poO3));
-            data = aapi.getDay(18,05,05);
-            poO3 = Station.convert(data.getStationList().get(indice).getData(Station.Pollutant.O3).getLast(), Station.Unit.AQI, Station.Pollutant.O3);
-            seriesO3.getData().add(new XYChart.Data("05", poO3));
-            data = aapi.getDay(18,05,04);
-            poO3 = Station.convert(data.getStationList().get(indice).getData(Station.Pollutant.O3).getLast(), Station.Unit.AQI, Station.Pollutant.O3);
-            seriesO3.getData().add(new XYChart.Data("04", poO3));
-            data = aapi.getDay(18,05,03);
-            poO3 = Station.convert(data.getStationList().get(indice).getData(Station.Pollutant.O3).getLast(), Station.Unit.AQI, Station.Pollutant.O3);
-            seriesO3.getData().add(new XYChart.Data("03", poO3));
-            data = aapi.getDay(18,05,02);
-            poO3 = Station.convert(data.getStationList().get(indice).getData(Station.Pollutant.O3).getLast(), Station.Unit.AQI, Station.Pollutant.O3);
-            seriesO3.getData().add(new XYChart.Data("02", poO3));
-            data = aapi.getDay(18,05,01);
-            poO3 = Station.convert(data.getStationList().get(indice).getData(Station.Pollutant.O3).getLast(), Station.Unit.AQI, Station.Pollutant.O3);
-            seriesO3.getData().add(new XYChart.Data("01", poO3));
-            data = aapi.getDay(18,04,30);
-            poO3 = Station.convert(data.getStationList().get(indice).getData(Station.Pollutant.O3).getLast(), Station.Unit.AQI, Station.Pollutant.O3);
-            seriesO3.getData().add(new XYChart.Data("30", poO3));
-            
-           
                 data = aapi.getDay();
             } catch (IOException ex) {
-                Logger.getLogger(RightTemp.class.getName()).log(Level.SEVERE, null, ex);
-            }
+                
+            }*/
             
-            //whipe old data
-            tile = new Tile(Tile.SkinType.DONUT_CHART);
-            this.getChildren().add(tile);
-            
-            tile.addChartData(new ChartData("CO", Station.convert(data.getStationList().get(indice).getData(Station.Pollutant.CO).getLast(), Station.Unit.AQI, Station.Pollutant.CO), Color.DARKGRAY));
-            tile.addChartData(new ChartData("SO2", Station.convert(data.getStationList().get(indice).getData(Station.Pollutant.SO2).getLast(), Station.Unit.AQI, Station.Pollutant.SO2), Color.DARKVIOLET));
-            tile.addChartData(new ChartData("NO2", Station.convert(data.getStationList().get(indice).getData(Station.Pollutant.NO2).getLast(), Station.Unit.AQI, Station.Pollutant.NO2), Color.DARKSLATEBLUE));
-            tile.addChartData(new ChartData("PM", Station.convert(data.getStationList().get(indice).getData(Station.Pollutant.PM).getLast(), Station.Unit.AQI, Station.Pollutant.PM), Color.DARKORANGE));
-            
-            for (Station.Pollutant p : Station.Pollutant.values()) {
-             //   for (int i = 0; i < Station.Pollutant.values().length;i++) {
-                if (data.getStationList().get(indice).hasData(p)) {
-                   // System.out.println(p + ": " + Station.convert(data.getStationList().get(indice).getData(p).getLast(), Station.Unit.AQI, p));
-                }
-            }
 
         });
-
-        
-
-        */
+        this.getChildren().add(mapInfoAir);
+            
 
         tile.setPrefSize(300, 300);
         tile.setLayoutX(770);
@@ -220,7 +137,7 @@ public class RightTemp extends Right {
 
         choix.setFont(Font.font("verdana", 24));
         choix.setTextFill(Color.WHITE);
-        choix.setLayoutX(950);
+        choix.setLayoutX(850);
         choix.setLayoutY(360);
 
         titreEtude.setFont(Font.font("verdana", 40));
@@ -234,8 +151,8 @@ public class RightTemp extends Right {
         infoAir.setLayoutX(770);
         this.getChildren().add(titreEtude);
         this.getChildren().add(choix);
-        this.getChildren().add(mapInfoAir);
-        this.getChildren().add(cb);
+        //this.getChildren().add(mapInfoAir);
+        this.getChildren().add(l);
         this.getChildren().add(infoAir);
     }
 
