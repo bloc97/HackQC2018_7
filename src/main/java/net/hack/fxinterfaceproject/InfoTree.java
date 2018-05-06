@@ -5,6 +5,7 @@
  */
 package net.hack.fxinterfaceproject;
 
+import java.util.Random;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -23,12 +24,28 @@ public class InfoTree extends StackPane{
     Text texteTemp = new Text("Les arbres ont une grande capacité à absorber le CO2 et produire de l’oxygène,"
             + "en plus de capturer d’autres \npolluants atmosphériques, dont les particules"
             + "fines, produites par les véhicules et le chauffage des bâtiments.");
+    String[] tipArray = new String[4];
+    Random random = new Random(System.currentTimeMillis());
+    
+    
     
     public InfoTree(){
         
         this.setMaxSize(1400, 90);//Était 1500 850
         this.setPrefSize(1400, 90);//Était 1500 850
         this.setStyle("-fx-background-color: #333333;");
+        
+        tipArray[0] = ("Les arbres ont une grande capacité à absorber le CO2 et produire de l’oxygène, \n"
+            + "en plus de capturer d’autres polluants atmosphériques, dont les particules\n"
+            + " fines, produites par les véhicules et le chauffage des bâtiments.");
+        tipArray[1] = "";
+        tipArray[2] = "";
+        tipArray[3] = "";
+        
+        
+        int max = 3;
+        int min = 0;
+        Text texteTemp = new Text(tipArray[(random.nextInt(max - min + 1) + min)]);
         
         texteTemp.setFont(Font.font("verdana", 24));
         texteTemp.setFill(Color.WHITE);
