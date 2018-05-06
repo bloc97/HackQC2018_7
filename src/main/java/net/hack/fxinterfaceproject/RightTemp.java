@@ -7,7 +7,6 @@ package net.hack.fxinterfaceproject;
 
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollBar;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
@@ -24,8 +23,6 @@ public class RightTemp extends Right {
         super();
         InfoAir infoAir = new InfoAir();
         MapInfoAir mapInfoAir = new MapInfoAir();
-        
-        ScrollBar sb = new ScrollBar();
         
         cb.getItems().add("Aéroport de Montréal Dorval");
         cb.getItems().add("Caserne 17");
