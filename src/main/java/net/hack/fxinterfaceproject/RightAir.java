@@ -261,18 +261,18 @@ public class RightAir extends Right {
     public RightAir() {
         super();
         MapInfoArbre mapInfoA = new MapInfoArbre();
-        InfoAir infoAir = new InfoAir();
+        InfoTemp infoTemp = new InfoTemp();
         this.setVisible(false);
         this.setStyle("-fx-background-color: #1F1F1F;");
-        infoAir.setLayoutY(85);
-        infoAir.setLayoutX(40);
+        infoTemp.setLayoutY(85);
+        infoTemp.setLayoutX(40);
         titreEtude.setFont(Font.font("verdana", 40));
         titreEtude.setLayoutY(20);
         titreEtude.setLayoutX(40);
         titreEtude.setTextFill(Color.web("#FF9900"));
         this.getChildren().add(titreEtude);
         this.getChildren().add(mapInfoA);
-        this.getChildren().add(infoAir);
+        this.getChildren().add(infoTemp);
     }
     
     

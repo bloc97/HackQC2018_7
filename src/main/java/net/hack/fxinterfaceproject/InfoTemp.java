@@ -20,31 +20,25 @@ import javafx.scene.text.TextAlignment;
  */
 public class InfoTemp extends StackPane{
     
-    Label icone = new Label();
+  
     
-    Text texteTemp = new Text("Les îlots de chaleur urbains causent une augmentation du smog et dégradent la qualité. Aussi, \n"
-            + "ils créent un plus grand besoin en réfrigération, augmentant la consommation d’énergie et \n"
+    Text texteTemp = new Text("Les îlots de chaleur urbains causent une augmentation du smog et dégradent la qualité. Aussi, "
+            + "ils créent \nun plus grand besoin en réfrigération, augmentant la consommation d’énergie et "
             + "d’eau potable.");
     
     public InfoTemp(){
         
-        Image vert = new Image(ClassLoader.getSystemResourceAsStream("vert.png"));
-        this.setMaxSize(1200, 150);//Était 1500 850
-        this.setPrefSize(1200, 150);//Était 1500 850
+        this.setMaxSize(1400, 90);//Était 1500 850
+        this.setPrefSize(1400, 90);//Était 1500 850
         this.setStyle("-fx-background-color: #333333;");
         
-        icone.setMaxSize(50, 50);
-        icone.setStyle("-fx-background-color: transparent;");
-        icone.setGraphic(new ImageView(vert));
+       
         
         texteTemp.setFont(Font.font("verdana", 24));
         texteTemp.setFill(Color.WHITE);
         texteTemp.setTextAlignment(TextAlignment.CENTER);
         
-        icone.setLayoutX(-60);
-        icone.setLayoutY(40);
         
-        this.getChildren().add(icone);
         this.getChildren().add(texteTemp);
     }
 }

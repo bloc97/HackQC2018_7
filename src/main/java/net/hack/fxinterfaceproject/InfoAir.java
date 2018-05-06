@@ -25,23 +25,17 @@ public class InfoAir extends StackPane{
     
     public InfoAir(){
         
-        tipArray[0] = ("Selon l’Organisation mondiale de la Santé (OMS), 9 personnes sur 10 respiraient un air\n"
-            + " avec un taux élevé de polluants. De plus, l’exposition aux particules fines, qui endommage le système \n"
-            + " respiratoire et cardiovasculaire, est responsable d’environ 7 millions de morts chaque année.");
-        tipArray[1] ="Sed efficitur nibh id neque aliquam, vitae sagittis risus tincidunt. ";
-        tipArray[2] ="Nunc nec diam lacus. Aenean a blandit nisi. Cras posuere erat velit, "
-                + "id imperdiet arcu euismod sed. Morbi quis magna vulputate dolor pharetra varius. ";
-        tipArray[3] =" Phasellus sollicitudin mi at orci faucibus volutpat. "
-                + "Proin finibus auctor tellus non semper. ";
+        tipArray[0] = ("Selon l’Organisation mondiale de la Santé (OMS),\n9 personnes sur 10 respiraient un air\n"
+            + " avec un taux élevé de polluants. De plus, l’exposition\n aux particules fines, qui endommage le système \n"
+            + " respiratoire et cardiovasculaire, est responsable\n d’environ 7 millions de morts chaque année.");
+        
         Image rose = new Image(ClassLoader.getSystemResourceAsStream("rose.png"));
         
-        this.setMaxSize(1400, 90);//Était 1500 850
-        this.setPrefSize(1400, 90);//Était 1500 850
+        this.setMaxSize(700, 200);//Était 1500 850
+        this.setPrefSize(700, 200);//Était 1500 850
         this.setStyle("-fx-background-color: #333333;");
         
-        int max = 3;
-        int min = 0;
-        Text texteAir = new Text(tipArray[(random.nextInt(max - min + 1) + min)]);
+        Text texteAir = new Text(tipArray[0]);
         
         texteAir.setFont(Font.font("verdana", 24));
         

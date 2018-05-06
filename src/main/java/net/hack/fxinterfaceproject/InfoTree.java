@@ -51,13 +51,15 @@ public class InfoTree extends StackPane{
         tipArray[0] = ("Les arbres ont une grande capacité à absorber le CO2 et produire de l’oxygène,"
                 + "en plus de capturer d’autres \npolluants atmosphériques, dont les particules"
                 + "fines, produites par les véhicules et le chauffage des bâtiments.");
-        tipArray[1] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-                + " Mauris eget scelerisque tortor, ac porttitor metus. Sed diam nibh,"
-                + " feugiat vitae ante eu, tempor porta velit. Mauris mi quam, ullamcorper sed elit vitae, gravida dignissim arcu. "
-                + " Vestibulum metus mi, interdum eget mi id, eleifend auctor nibh. ";
-        tipArray[2] = "Duis non risus sit amet tortor convallis gravida. Sed varius tempor tellus non imperdiet."
-                + " Nullam vitae massa eget velit tristique egestas. ";
-        tipArray[3] = "Quisque sit amet urna blandit, lobortis turpis in, maximus ipsum. ";
+        tipArray[1] = "Les arbres ont une grande capacité à absorber le CO2 et produire de l’oxygène,"
+                + "en plus de capturer d’autres \npolluants atmosphériques, dont les particules"
+                + "fines, produites par les véhicules et le chauffage des bâtiments.";
+        tipArray[2] = "Les arbres ont une grande capacité à absorber le CO2 et produire de l’oxygène,"
+                + "en plus de capturer d’autres \npolluants atmosphériques, dont les particules"
+                + "fines, produites par les véhicules et le chauffage des bâtiments.";
+        tipArray[3] = "Les arbres ont une grande capacité à absorber le CO2 et produire de l’oxygène,"
+                + "en plus de capturer d’autres \npolluants atmosphériques, dont les particules"
+                + "fines, produites par les véhicules et le chauffage des bâtiments.";
         
         
         int max = 3;

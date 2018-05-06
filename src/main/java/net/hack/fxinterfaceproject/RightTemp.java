@@ -53,7 +53,7 @@ public class RightTemp extends Right {
 
         cb.setStyle("-fx-background-color: white;");
         cb.setLayoutX(1200);
-        cb.setLayoutY(100);
+        cb.setLayoutY(360);
         
         XYChart.Series<String, Number> series1 = new XYChart.Series();
         series1.setName("O3 dans l'air durant la semaine");
@@ -221,7 +221,7 @@ public class RightTemp extends Right {
         choix.setFont(Font.font("verdana", 24));
         choix.setTextFill(Color.WHITE);
         choix.setLayoutX(950);
-        choix.setLayoutY(95);
+        choix.setLayoutY(360);
 
         titreEtude.setFont(Font.font("verdana", 40));
         titreEtude.setLayoutY(20);
@@ -230,13 +230,13 @@ public class RightTemp extends Right {
 
         this.setVisible(false);
         this.setStyle("-fx-background-color: #1F1F1F;");
-        infoAir.setLayoutY(50);
-        infoAir.setLayoutX(130);
+        infoAir.setLayoutY(95);
+        infoAir.setLayoutX(770);
         this.getChildren().add(titreEtude);
         this.getChildren().add(choix);
         this.getChildren().add(mapInfoAir);
         this.getChildren().add(cb);
-        //this.getChildren().add(infoAir);
+        this.getChildren().add(infoAir);
     }
 
 }
