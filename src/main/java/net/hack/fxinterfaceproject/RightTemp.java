@@ -66,7 +66,7 @@ public class RightTemp extends Right {
         series1.getData().add(new XYChart.Data("D", 19));
         
          tileSmoothedChar = TileBuilder.create()
-                .prefSize(400, 300)
+                .prefSize(350, 300)
                 .skinType(Tile.SkinType.SMOOTHED_CHART)
                 .chartType(ChartType.AREA)
                 .series(series1)
@@ -84,7 +84,27 @@ public class RightTemp extends Right {
             String region;
             region = cb.getValue().toString();
             int indice = 0;
-            switch (region) {
+            
+             
+            //Tile tile2 = new Tile(Tile.SkinType.DONUT_CHART);
+             tile.clearChartData();
+             tile.addChartData(new ChartData("CO", Math.random(), Color.DARKGRAY));
+             tile.addChartData(new ChartData("SO2", Math.random(), Color.DARKVIOLET));
+             tile.addChartData(new ChartData("NO2", Math.random(), Color.DARKSLATEBLUE));
+             tile.addChartData(new ChartData("PM", Math.random(), Color.DARKORANGE));
+             tile.addChartData(new ChartData("O3", Math.random()*2 +23, Color.BLACK));
+             
+            tileSmoothedChar.clearChartData();
+            series1.getData().add(new XYChart.Data("L", Math.random()*2 +23));
+            series1.getData().add(new XYChart.Data("Ma",Math.random()*2 +23));
+            series1.getData().add(new XYChart.Data("Me", Math.random()*2 +23));
+            series1.getData().add(new XYChart.Data("J", Math.random()*2 +23));
+            series1.getData().add(new XYChart.Data("V", Math.random()*2 +23));
+            series1.getData().add(new XYChart.Data("S", Math.random()*2 +23));
+            series1.getData().add(new XYChart.Data("D", Math.random()*2 +23));
+             
+             
+           /* switch (region) {
                 case ("Aéroport de Montréal Dorval"):
                     indice = 7;
                     break;
@@ -115,6 +135,17 @@ public class RightTemp extends Right {
 
             }
             
+           */
+            //this.getChildren().add(tile2);
+            //tile = tile2;
+            
+            
+        });
+        
+        
+            
+            
+            /*
              tileSmoothedChar = TileBuilder.create()
                 .prefSize(400, 300)
                 .skinType(Tile.SkinType.SMOOTHED_CHART)
@@ -175,13 +206,13 @@ public class RightTemp extends Right {
 
         
 
-        
+        */
 
         tile.setPrefSize(300, 300);
         tile.setLayoutX(770);
         tile.setLayoutY(450);
 
-        tileSmoothedChar.setLayoutX(1200);
+        tileSmoothedChar.setLayoutX(1100);
         tileSmoothedChar.setLayoutY(450);
 
         this.getChildren().add(tileSmoothedChar);
