@@ -25,14 +25,14 @@ public class Left extends Pane{
     public Left(RightAccueil rightAccueil,RightAir rightAir, RightTree rightTree, RightTemp rightTemp) {
         //consulte les codes dans Top.java
         
-        Image air = new Image(ClassLoader.getSystemResourceAsStream("vent.png"));
-        Image air1 = new Image(ClassLoader.getSystemResourceAsStream("vent1.png"));
+        Image air = new Image(ClassLoader.getSystemResourceAsStream("thermo.png"));
+        Image air1 = new Image(ClassLoader.getSystemResourceAsStream("thermo1.png"));
         
         Image arbre = new Image(ClassLoader.getSystemResourceAsStream("feuille.png"));
         Image arbre1 = new Image(ClassLoader.getSystemResourceAsStream("feuille1.png"));
         
-        Image temperature = new Image(ClassLoader.getSystemResourceAsStream("thermo.png"));
-        Image temperature1 = new Image(ClassLoader.getSystemResourceAsStream("thermo1.png"));
+        Image temperature = new Image(ClassLoader.getSystemResourceAsStream("vent.png"));
+        Image temperature1 = new Image(ClassLoader.getSystemResourceAsStream("vent1.png"));
         
  
         

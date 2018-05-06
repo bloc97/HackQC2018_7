@@ -21,6 +21,9 @@ import javafx.scene.text.TextAlignment;
  */
 public class InfoTree extends StackPane{
     
+    Text texteTemp = new Text("Les arbres ont une grande capacité à absorber le CO2 et produire de l’oxygène,"
+            + "en plus de capturer d’autres \npolluants atmosphériques, dont les particules"
+            + "fines, produites par les véhicules et le chauffage des bâtiments.");
     String[] tipArray = new String[4];
     Random random = new Random(System.currentTimeMillis());
     
@@ -28,16 +31,16 @@ public class InfoTree extends StackPane{
     
     public InfoTree(){
         
-        this.setMaxSize(1000, 150);//Était 1500 850
-        this.setPrefSize(1000, 150);//Était 1500 850
+        this.setMaxSize(1400, 90);//Était 1500 850
+        this.setPrefSize(1400, 90);//Était 1500 850
         this.setStyle("-fx-background-color: #333333;");
         
-        tipArray[0] = ("Les arbres ont une grande capacité à absorber le CO2 et produire de l’oxygène, \n"
-            + "en plus de capturer d’autres polluants atmosphériques, dont les particules\n"
-            + " fines, produites par les véhicules et le chauffage des bâtiments.");
-        tipArray[1] = "";
-        tipArray[2] = "";
-        tipArray[3] = "";
+        tipArray[0] = ("Les arbres ont une grande capacité à absorber le CO2 et produire de l’oxygène,"
+                + "en plus de capturer d’autres \npolluants atmosphériques, dont les particules"
+                + "fines, produites par les véhicules et le chauffage des bâtiments.");
+        tipArray[1] = "P";
+        tipArray[2] = "P";
+        tipArray[3] = "P";
         
         
         int max = 3;

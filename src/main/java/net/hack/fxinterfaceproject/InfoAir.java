@@ -6,9 +6,7 @@
 package net.hack.fxinterfaceproject;
 
 import java.util.Random;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -35,16 +33,17 @@ public class InfoAir extends StackPane{
         tipArray[3] ="D";
         Image rose = new Image(ClassLoader.getSystemResourceAsStream("rose.png"));
         
-        this.setMaxSize(1200, 150);//Était 1500 850
-        this.setPrefSize(1200, 150);//Était 1500 850
+        this.setMaxSize(1400, 90);//Était 1500 850
+        this.setPrefSize(1400, 90);//Était 1500 850
         this.setStyle("-fx-background-color: #333333;");
         
         int max = 3;
         int min = 0;
-        Label texteAir = new Label(tipArray[(random.nextInt(max - min + 1) + min)]);
+        Text texteAir = new Text(tipArray[(random.nextInt(max - min + 1) + min)]);
         
         texteAir.setFont(Font.font("verdana", 24));
-        //texteAir.setFill(Color.WHITE);
+        
+        texteAir.setFill(Color.WHITE);
         texteAir.setTextAlignment(TextAlignment.CENTER);
         
         this.getChildren().add(texteAir);
