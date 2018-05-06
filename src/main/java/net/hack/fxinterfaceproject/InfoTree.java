@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -50,9 +51,13 @@ public class InfoTree extends StackPane{
         tipArray[0] = ("Les arbres ont une grande capacité à absorber le CO2 et produire de l’oxygène,"
                 + "en plus de capturer d’autres \npolluants atmosphériques, dont les particules"
                 + "fines, produites par les véhicules et le chauffage des bâtiments.");
-        tipArray[1] = "P";
-        tipArray[2] = "P";
-        tipArray[3] = "P";
+        tipArray[1] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                + " Mauris eget scelerisque tortor, ac porttitor metus. Sed diam nibh,"
+                + " feugiat vitae ante eu, tempor porta velit. Mauris mi quam, ullamcorper sed elit vitae, gravida dignissim arcu. "
+                + " Vestibulum metus mi, interdum eget mi id, eleifend auctor nibh. ";
+        tipArray[2] = "Duis non risus sit amet tortor convallis gravida. Sed varius tempor tellus non imperdiet."
+                + " Nullam vitae massa eget velit tristique egestas. ";
+        tipArray[3] = "Quisque sit amet urna blandit, lobortis turpis in, maximus ipsum. ";
         
         
         int max = 3;
@@ -74,6 +79,6 @@ public class InfoTree extends StackPane{
 
         
         this.getChildren().add(texteTemp);
-        this.getChildren().add(btnInfo);
+      //  this.getChildren().add(btnInfo);
     }
 }
