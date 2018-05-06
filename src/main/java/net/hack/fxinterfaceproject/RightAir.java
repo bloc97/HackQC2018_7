@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package net.hack.fxinterfaceproject;
+/*package net.hack.fxinterfaceproject;
 
 import eu.hansolo.tilesfx.Tile;
 import eu.hansolo.tilesfx.chart.ChartData;
@@ -36,11 +36,13 @@ import net.hack.libs.GeoUtils;
 import net.hack.libs.airpollution.AirPollutionAPI;
 import net.hack.libs.airpollution.DayData;
 import net.hack.libs.airpollution.Station;
-
+*/
 /**
  *
  * @author panbe
  */
+
+/*
 public class RightAir extends Right{
 
     
@@ -130,16 +132,7 @@ public class RightAir extends Right{
         //Grapher2D grapher = new Grapher2D(image);
         //this.getChildren().add(grapher);
         
-        Tile tile = new Tile(Tile.SkinType.DONUT_CHART);
-        tile.addChartData(new ChartData("CO", 48, Color.DARKGRAY));
-        tile.addChartData(new ChartData("SO2", 32, Color.DARKVIOLET));
-        tile.addChartData(new ChartData("NO2", 13, Color.DARKSLATEBLUE));
-        tile.addChartData(new ChartData("PM", 82, Color.DARKORANGE));
-        tile.addChartData(new ChartData("NONE", 120, Color.BLACK));
         
-        tile.setPrefSize(400, 400);
-        
-        this.getChildren().add(tile);
         
         
         /*
@@ -165,7 +158,7 @@ public class RightAir extends Right{
         Grapher2D grapher = new Grapher2D(array);
         this.getChildren().add(grapher);
         */
-        
+        /*
         Image cancel = new Image(ClassLoader.getSystemResourceAsStream("cancel.png"));
         Image cancel1 = new Image(ClassLoader.getSystemResourceAsStream("cancel1.png"));
         
@@ -239,6 +232,47 @@ public class RightAir extends Right{
         infoAir.setLayoutX(130);
         //this.getChildren().add(infoAir);
 
+    }
+    
+    
+}
+
+*/
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package net.hack.fxinterfaceproject;
+
+import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+
+/**
+ *
+ * @author panbe
+ */
+public class RightAir extends Right {
+    
+    Label titreEtude = new Label("TEMPÉRATURE DU SOL");
+
+    public RightAir() {
+        super();
+        MapInfoArbre mapInfoA = new MapInfoArbre();
+        InfoTree infoTree = new InfoTree();
+        this.setVisible(false);
+        this.setStyle("-fx-background-color: #1F1F1F;");
+        infoTree.setLayoutY(30);
+        infoTree.setLayoutX(445);
+        titreEtude.setFont(Font.font("verdana", 40));
+        titreEtude.setLayoutY(20);
+        titreEtude.setLayoutX(40);
+        titreEtude.setTextFill(Color.web("#FF9900"));
+        this.getChildren().add(titreEtude);
+        this.getChildren().add(mapInfoA);
+        this.getChildren().add(infoTree);
     }
     
     

@@ -23,12 +23,12 @@ public class RightTree extends Right {
         InfoTree infoTree = new InfoTree();
         this.setVisible(false);
         this.setStyle("-fx-background-color: #1F1F1F;");
-        infoTree.setLayoutY(30);
-        infoTree.setLayoutX(445);
+        infoTree.setLayoutY(85);
+        infoTree.setLayoutX(40);
         titreEtude.setFont(Font.font("verdana", 40));
         titreEtude.setLayoutY(20);
         titreEtude.setLayoutX(40);
-        titreEtude.setTextFill(Color.web("#FF9900"));
+        titreEtude.setTextFill(Color.web("#1aff1a"));
         this.getChildren().add(titreEtude);
         this.getChildren().add(mapInfoA);
         this.getChildren().add(infoTree);

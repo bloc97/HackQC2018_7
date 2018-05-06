@@ -20,14 +20,14 @@ import javafx.scene.text.TextAlignment;
  */
 public class InfoTree extends StackPane{
     
-    Text texteTemp = new Text("Les arbres ont une grande capacité à absorber le CO2 et produire de l’oxygène, \n"
-            + "en plus de capturer d’autres polluants atmosphériques, dont les particules\n"
-            + " fines, produites par les véhicules et le chauffage des bâtiments.");
+    Text texteTemp = new Text("Les arbres ont une grande capacité à absorber le CO2 et produire de l’oxygène,"
+            + "en plus de capturer d’autres \npolluants atmosphériques, dont les particules"
+            + "fines, produites par les véhicules et le chauffage des bâtiments.");
     
     public InfoTree(){
         
-        this.setMaxSize(1000, 150);//Était 1500 850
-        this.setPrefSize(1000, 150);//Était 1500 850
+        this.setMaxSize(1400, 90);//Était 1500 850
+        this.setPrefSize(1400, 90);//Était 1500 850
         this.setStyle("-fx-background-color: #333333;");
         
         texteTemp.setFont(Font.font("verdana", 24));
