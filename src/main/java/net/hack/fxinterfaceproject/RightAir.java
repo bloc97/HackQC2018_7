@@ -260,7 +260,7 @@ public class RightAir extends Right {
 
     public RightAir() {
         super();
-        MapInfoArbre mapInfoA = new MapInfoArbre();
+        MapInfoTemp mapInfoA = new MapInfoTemp();
         InfoTemp infoTemp = new InfoTemp();
         this.setVisible(false);
         this.setStyle("-fx-background-color: #1F1F1F;");

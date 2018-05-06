@@ -2,6 +2,7 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
+https://rasp-emile.tk/hackqc/
  */
 package net.hack.fxinterfaceproject;
 
@@ -15,24 +16,24 @@ import javafx.scene.web.WebView;
  *
  * @author Emmanuelle
  */
-public class MapInfoAir extends Pane {
+public class MapInfoTemp extends Pane {
 
-    public MapInfoAir() {
+    public MapInfoTemp() {
         
  
         final WebView browser = new WebView();
         final WebEngine webEngine = browser.getEngine();
         webEngine.load("https://rasp-emile.tk/hackqc/");
-        browser.setPrefSize(700, 700);
+ 
         VBox root = new VBox();
         root.setPadding(new Insets(5));
         root.setSpacing(5);
-        root.setPrefSize(700,700);
-        //root.setMinSize(700,800);
+        root.setPrefSize(1400,650);
         root.setLayoutX(40);
-        root.setLayoutY(80);
+        root.setLayoutY(200);
         root.getChildren().addAll(browser);
         this.getChildren().add(root);
     }
   
 }
+

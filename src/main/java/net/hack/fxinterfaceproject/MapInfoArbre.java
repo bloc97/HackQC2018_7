@@ -22,7 +22,7 @@ public class MapInfoArbre extends Pane {
  
         final WebView browser = new WebView();
         final WebEngine webEngine = browser.getEngine();
-        webEngine.load("https://www.google.ca/maps");
+        webEngine.load("https://rasp-emile.tk/hackqc/index.html");
  
         VBox root = new VBox();
         root.setPadding(new Insets(5));
