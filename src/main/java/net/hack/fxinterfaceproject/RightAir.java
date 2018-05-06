@@ -5,6 +5,9 @@
  */
 package net.hack.fxinterfaceproject;
 
+import eu.hansolo.tilesfx.chart.ChartData;
+import eu.hansolo.tilesfx.chart.RadarChart;
+import eu.hansolo.tilesfx.skins.CircularProgressTileSkin;
 import static java.lang.Integer.max;
 import static java.lang.Integer.min;
 import java.util.Random;
@@ -123,7 +126,11 @@ public class RightAir extends Right{
         infoAir.setLayoutY(50);
         infoAir.setLayoutX(130);
         //this.getChildren().add(infoAir);
-
+//        RadarChart radarChart = new RadarChart();
+//        radarChart.setPrefSize(400, 400);
+//        radarChart.addData(new ChartData("peterpan", 666));
+//        this.getChildren().add(radarChart);
+      //  CircularProgressTileSkin cp = new CircularProgressTileSkin(new Tile());
     }
     
     

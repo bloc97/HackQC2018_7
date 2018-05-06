@@ -5,6 +5,9 @@
  */
 package net.hack.fxinterfaceproject;
 
+import eu.hansolo.tilesfx.chart.ChartData;
+import eu.hansolo.tilesfx.chart.RadarChart;
+import javafx.scene.chart.XYChart.Data;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -45,6 +48,8 @@ public class InfoAir extends StackPane{
         
         icone.setLayoutX(-60);
         icone.setLayoutY(40);
+        
+        
         
         this.getChildren().add(icone);
         this.getChildren().add(texteAir);
