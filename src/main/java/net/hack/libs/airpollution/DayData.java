@@ -23,8 +23,8 @@
  */
 package net.hack.libs.airpollution;
 
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -32,7 +32,7 @@ import java.util.Map;
  *
  * @author bowen
  */
-public class DayData {
+public class DayData implements Serializable {
     
     private final Map<Integer, Station> stationMap;
     private final int day;

@@ -24,6 +24,7 @@
 package net.hack.libs.airpollution;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -41,7 +42,7 @@ import net.hack.libs.HttpUtils;
  *
  * @author bowen
  */
-public class Station {
+public class Station implements Serializable {
     
     private static final Map<Integer, String[]> info = new LinkedHashMap<>();
     private static final String INFOURL = "coordonnees-stations-rsqa.csv";

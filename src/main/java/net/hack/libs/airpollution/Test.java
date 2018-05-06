@@ -1,11 +1,11 @@
 package net.hack.libs.airpollution;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
-import javafx.util.Pair;
-import javax.imageio.ImageIO;
-import net.hack.libs.GeoUtils;
+import java.time.LocalDate;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  *
@@ -53,17 +53,47 @@ public class Test {
         
         AirPollutionAPI aapi = new AirPollutionAPI();
         
-        //DayData data = aapi.getDay(13, 10, 25);
-        DayData data = aapi.getDay();
+        DayData data = aapi.getDay(2007, 1, 1);
+        //DayData data = aapi.getDay();
         System.out.println(data);
         System.out.println(data.getStationList());
         
         System.out.println("Station " + data.getStationList().get(0).getId());
+        
         for (Station.Pollutant p : Station.Pollutant.values()) {
             if (data.getStationList().get(0).hasData(p)) {
                 System.out.println(p + ": " + Station.convert(data.getStationList().get(0).getData(p).getLast(), Station.Unit.AQI, p));
             }
         }
         
+        ExecutorService e = Executors.newCachedThreadPool();
+        
+        for (int i=2007; i<2018; i++) {
+            final int iy = i;
+            e.submit(() -> {
+                AirPollutionAPI api = new AirPollutionAPI();
+                LocalDate start = LocalDate.of(iy, 1, 1);
+                LocalDate end = LocalDate.of(iy+1, 1, 1);
+                Map<Long, DayData> yearData = new LinkedHashMap<>();
+                for (LocalDate date = start; date.isBefore(end); date = date.plusDays(1)) {
+                    try {
+                        DayData dayData = api.getDay(date.getYear(), date.getMonthValue(), date.getDayOfMonth());
+                        long epoch = date.toEpochDay();
+                        int year = date.getYear();
+
+                        yearData.put(epoch, dayData);
+                        System.out.println(date + " " + dayData.getYear() + "-" + dayData.getMonth() + "-" + dayData.getDay());
+                    } catch (IOException ex) {
+                    }
+                }
+                try {
+                    AirPollutionAPI.saveYearDataMap(yearData, iy);
+                } catch (IOException ex) {
+                }
+            });
+        }
+        
     }
+    
+    
 }

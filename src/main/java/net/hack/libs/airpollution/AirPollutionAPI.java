@@ -23,8 +23,13 @@
  */
 package net.hack.libs.airpollution;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import net.hack.libs.HttpUtils;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.EnumMap;
@@ -45,6 +50,21 @@ import net.hack.libs.UrlBuilder;
 public class AirPollutionAPI {
 
     private static final String URL = "http://ville.montreal.qc.ca/rsqa/servlet/makeXmlActuel";
+
+    public static final Map<Long, DayData> loadYearDataMap(int year) throws FileNotFoundException, IOException, ClassNotFoundException {
+        FileInputStream fis = new FileInputStream("RSQA" + year + ".dat");
+        ObjectInputStream ois = new ObjectInputStream(fis);
+        Map<Long, DayData> result = (Map<Long, DayData>) ois.readObject();
+        ois.close();
+        return result;
+    }
+
+    public static final void saveYearDataMap(Map<Long, DayData> dataMap, int year) throws IOException {
+        FileOutputStream fos = new FileOutputStream("RSQA" + year + ".dat");
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        oos.writeObject(dataMap);
+        oos.close();
+    }
     
     /**
      * @return air pollution data in Montreal for the current day.
