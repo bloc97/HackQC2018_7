@@ -60,7 +60,6 @@ public class RightAir extends Right{
         
         
         Image image = new Image(ClassLoader.getSystemClassLoader().getResourceAsStream("chaleur_3000_17438_24241.png"));
-        Image image2 = new WritableImage
         
         
         Grapher2D grapher = new Grapher2D(image);
