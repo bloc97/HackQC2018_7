@@ -5,8 +5,11 @@
  */
 package net.hack.libs;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
 import javafx.util.Pair;
 import static java.lang.Math.*;
+import javax.imageio.ImageIO;
 import static net.hack.libs.MathExt.*;
 
 /**
@@ -14,6 +17,54 @@ import static net.hack.libs.MathExt.*;
  * @author bowen
  */
 public class GeoUtils {
+    
+    
+    public static final Pair<Double, Double> getPolar(double x, double y) {
+        Pair<Double, Double> topLeft = GeoUtils.polarToLambertConic(49.76234d*Math.PI/180, -79.5142d*Math.PI/180, -68.5d*Math.PI/180, 44d*Math.PI/180, 46d*Math.PI/180, 60d*Math.PI/180);
+        Pair<Double, Double> bottomLeft = GeoUtils.polarToLambertConic(44.65949d*Math.PI/180, -78.41124d*Math.PI/180, -68.5d*Math.PI/180, 44d*Math.PI/180, 46d*Math.PI/180, 60d*Math.PI/180);
+        Pair<Double, Double> topRight = GeoUtils.polarToLambertConic(50.22866d*Math.PI/180, -64.22754d*Math.PI/180, -68.5d*Math.PI/180, 44d*Math.PI/180, 46d*Math.PI/180, 60d*Math.PI/180);
+        Pair<Double, Double> bottomRight = GeoUtils.polarToLambertConic(45.07587d*Math.PI/180, -64.66043d*Math.PI/180, -68.5d*Math.PI/180, 44d*Math.PI/180, 46d*Math.PI/180, 60d*Math.PI/180);
+
+        double x0 = topLeft.getKey();
+        double y0 = topLeft.getValue();
+        
+        double width = bottomRight.getKey() - x0;
+        double height = bottomRight.getValue() - y0;
+        
+        double xr = x/3000d;
+        double yr = y/3000d;
+        
+        double x1 = x0 + width * xr;
+        double y1 = y0 + height * yr;
+        
+        Pair<Double, Double> pairTest = GeoUtils.lambertConicToPolar(x1, y1, -68.5d*Math.PI/180, 44d*Math.PI/180, 46d*Math.PI/180, 60d*Math.PI/180);
+        
+        return pairTest;
+    }
+    
+    public static final Pair<Double, Double> getCoord(double latitude, double longitude) {
+        Pair<Double, Double> topLeft = GeoUtils.polarToLambertConic(49.76234d*Math.PI/180, -79.5142d*Math.PI/180, -68.5d*Math.PI/180, 44d*Math.PI/180, 46d*Math.PI/180, 60d*Math.PI/180);
+        Pair<Double, Double> bottomLeft = GeoUtils.polarToLambertConic(44.65949d*Math.PI/180, -78.41124d*Math.PI/180, -68.5d*Math.PI/180, 44d*Math.PI/180, 46d*Math.PI/180, 60d*Math.PI/180);
+        Pair<Double, Double> topRight = GeoUtils.polarToLambertConic(50.22866d*Math.PI/180, -64.22754d*Math.PI/180, -68.5d*Math.PI/180, 44d*Math.PI/180, 46d*Math.PI/180, 60d*Math.PI/180);
+        Pair<Double, Double> bottomRight = GeoUtils.polarToLambertConic(45.07587d*Math.PI/180, -64.66043d*Math.PI/180, -68.5d*Math.PI/180, 44d*Math.PI/180, 46d*Math.PI/180, 60d*Math.PI/180);
+
+        double x0 = topLeft.getKey();
+        double y0 = topLeft.getValue();
+        
+        double width = bottomRight.getKey() - x0;
+        double height = bottomRight.getValue() - y0;
+        
+        Pair<Double, Double> pairTest = GeoUtils.polarToLambertConic(latitude, longitude, -68.5d*Math.PI/180, 44d*Math.PI/180, 46d*Math.PI/180, 60d*Math.PI/180);
+        
+        double xr = (pairTest.getKey() - x0) / width;
+        double yr = (pairTest.getValue() - y0) / height;
+        
+        double x = xr * 3000;
+        double y = yr * 3000;
+        
+        return new Pair<>(x, y);
+        
+    }
     
     /**
      *

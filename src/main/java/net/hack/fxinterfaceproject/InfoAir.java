@@ -23,8 +23,6 @@ import javafx.scene.text.TextAlignment;
  */
 public class InfoAir extends StackPane{
     
-    Label icone = new Label();
-    
     Text texteAir = new Text("Selon l’Organisation mondiale de la Santé (OMS), 9 personnes sur 10 respiraient un air\n"
             + " avec un taux élevé de polluants. De plus, l’exposition aux particules fines, qui endommage le système \n"
             + " respiratoire et cardiovasculaire, est responsable d’environ 7 millions de morts chaque année.");
@@ -37,21 +35,19 @@ public class InfoAir extends StackPane{
         this.setPrefSize(1200, 150);//Était 1500 850
         this.setStyle("-fx-background-color: #333333;");
         
-        
-        icone.setMaxSize(50, 50);
-        icone.setStyle("-fx-background-color: transparent;");
-        icone.setGraphic(new ImageView(rose));
-        
         texteAir.setFont(Font.font("verdana", 24));
         texteAir.setFill(Color.WHITE);
         texteAir.setTextAlignment(TextAlignment.CENTER);
         
+<<<<<<< HEAD
         icone.setLayoutX(-60);
         icone.setLayoutY(40);
         
         
         
         this.getChildren().add(icone);
+=======
+>>>>>>> origin/master
         this.getChildren().add(texteAir);
     }
  

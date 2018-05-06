@@ -25,20 +25,20 @@ public class Left extends Pane{
     public Left(RightAir rightAir, RightTree rightTree, RightTemp rightTemp) {
         //consulte les codes dans Top.java
         
-        Image air = new Image(ClassLoader.getSystemResourceAsStream("air.png"));
-        Image air1 = new Image(ClassLoader.getSystemResourceAsStream("air1.png"));
+        Image air = new Image(ClassLoader.getSystemResourceAsStream("vent.png"));
+        Image air1 = new Image(ClassLoader.getSystemResourceAsStream("vent1.png"));
         
-        Image arbre = new Image(ClassLoader.getSystemResourceAsStream("arbre.png"));
-        Image arbre1 = new Image(ClassLoader.getSystemResourceAsStream("arbre1.png"));
+        Image arbre = new Image(ClassLoader.getSystemResourceAsStream("feuille.png"));
+        Image arbre1 = new Image(ClassLoader.getSystemResourceAsStream("feuille1.png"));
         
-        Image temperature = new Image(ClassLoader.getSystemResourceAsStream("temperature.png"));
-        Image temperature1 = new Image(ClassLoader.getSystemResourceAsStream("temperature1.png"));
+        Image temperature = new Image(ClassLoader.getSystemResourceAsStream("thermo.png"));
+        Image temperature1 = new Image(ClassLoader.getSystemResourceAsStream("thermo1.png"));
         
  
         
         
         //<editor-fold defaultstate="collapsed" desc="buttonOne">
-        buttonOne.setMaxSize(100, 100);
+        buttonOne.setMaxSize(50, 50);
         buttonOne.setStyle("-fx-background-color: transparent;");
         buttonOne.setGraphic(new ImageView(air));
         
@@ -72,7 +72,7 @@ public class Left extends Pane{
          //</editor-fold>
       
         //<editor-fold defaultstate="collapsed" desc="buttonTwo">
-        buttonTwo.setMaxSize(100, 100);
+        buttonTwo.setMaxSize(50, 50);
         buttonTwo.setStyle("-fx-background-color: transparent;");
         buttonTwo.setGraphic(new ImageView(arbre));
         
@@ -104,7 +104,7 @@ public class Left extends Pane{
         //</editor-fold>
          
         //<editor-fold defaultstate="collapsed" desc="buttonThree">
-        buttonThree.setMaxSize(100, 100);
+        buttonThree.setMaxSize(50, 50);
         buttonThree.setStyle("-fx-background-color: transparent;");
         buttonThree.setGraphic(new ImageView(temperature));
         
@@ -136,16 +136,20 @@ public class Left extends Pane{
         
         //</editor-fold>
         
-        buttonTwo.setLayoutY(100);
-        buttonThree.setLayoutY(200);
+        buttonOne.setLayoutY(30);
+        buttonTwo.setLayoutY(130);
+        buttonThree.setLayoutY(230);
+        buttonOne.setLayoutX(15);
+        buttonTwo.setLayoutX(10);
+        buttonThree.setLayoutX(12);
        
         this.getChildren().add(buttonOne);
         this.getChildren().add(buttonTwo);
         this.getChildren().add(buttonThree);
         
          
-        this.setMaxSize(115, 850);
-        this.setPrefSize(115, 850);
+        this.setMaxSize(95, 850);
+        this.setPrefSize(95, 850);
         this.setStyle("-fx-background-color: #4D4D4D;");
         
     }
