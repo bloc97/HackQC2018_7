@@ -6,6 +6,7 @@
 package net.hack.fxinterfaceproject;
 
 import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
 /**
@@ -14,11 +15,11 @@ import javafx.scene.text.Font;
  */
 public class RightTree extends Right {
     
-    Label titreEtude = new Label("DENSITÉ DE LA \nFORESTERIE \nURBAINE");
+    Label titreEtude = new Label("DENSITÉ DE LA FORESTERIE URBAINE");
 
     public RightTree() {
         super();
-        MapInfo mapInfo = new MapInfo();
+        MapInfoArbre mapInfoA = new MapInfoArbre();
         InfoTree infoTree = new InfoTree();
         this.setVisible(false);
         this.setStyle("-fx-background-color: #1F1F1F;");
@@ -27,8 +28,9 @@ public class RightTree extends Right {
         titreEtude.setFont(Font.font("verdana", 40));
         titreEtude.setLayoutY(20);
         titreEtude.setLayoutX(40);
+        titreEtude.setTextFill(Color.web("#FF9900"));
         this.getChildren().add(titreEtude);
-        this.getChildren().add(mapInfo);
+        this.getChildren().add(mapInfoA);
         this.getChildren().add(infoTree);
     }
     

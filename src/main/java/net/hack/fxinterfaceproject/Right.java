@@ -21,10 +21,10 @@ public class Right extends Pane {
         
         
         
-        this.setLayoutX(115);
+        this.setLayoutX(95);
         this.setLayoutY(FinaleMaster.TOP_VGAP);
-        this.setMaxSize(1500, 850);//Était 1500 850
-        this.setPrefSize(1500, 850);//Était 1500 850
+        this.setMaxSize(1520, 850);//Était 1500 850
+        this.setPrefSize(1520, 850);//Était 1500 850
         this.setStyle("-fx-background-color: #1F1F1F;");
     }
     

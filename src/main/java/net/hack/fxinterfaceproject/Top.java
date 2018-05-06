@@ -123,8 +123,10 @@ public class Top extends Pane {
         //</editor-fold>
         
         buttonCancel.setLayoutX(1530);//Était 1490
+        buttonCancel.setLayoutY(5);
         
         buttonMini.setLayoutX(1470);//Était 1390
+        buttonMini.setLayoutY(5);
         
         title.setLayoutX(10);
         
