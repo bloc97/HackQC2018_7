@@ -23,7 +23,11 @@ public class MapInfoTemp extends Pane {
  
         final WebView browser = new WebView();
         final WebEngine webEngine = browser.getEngine();
+<<<<<<< HEAD
         webEngine.load("https://geoegl.msp.gouv.qc.ca/igo2/apercu-qc/?context=inspq");
+=======
+        webEngine.load("https://rasp-emile.tk/hackqc");
+>>>>>>> c1caefeffaf17b316f76d65f5cfadff5690a359d
  
         VBox root = new VBox();
         root.setPadding(new Insets(5));
