@@ -25,8 +25,6 @@ public class FxInterfaceProject extends Application {
     public void start(Stage primaryStage) {
         primaryStage.initStyle(StageStyle.UNDECORATED);
         
-        
-        
         Pane root = new Pane();
         //root.getChildren().add(btn);
         
@@ -37,7 +35,7 @@ public class FxInterfaceProject extends Application {
         RightAir rightAir = new RightAir();
         RightTree rightTree = new RightTree();
         RightTemp rightTemp = new RightTemp();
-        Left left = new Left(rightAir,rightTree,rightTemp);
+        Left left = new Left(right,rightAir,rightTree,rightTemp);
         root.getChildren().add(rightAir);
         root.getChildren().addAll(top,right,left,rightTree,rightTemp);
         
