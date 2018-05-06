@@ -5,6 +5,11 @@
  */
 package net.hack.fxinterfaceproject;
 
+import eu.hansolo.tilesfx.Tile;
+import eu.hansolo.tilesfx.chart.ChartData;
+import eu.hansolo.tilesfx.chart.RadarChart;
+import eu.hansolo.tilesfx.skins.RadarChartTileSkin;
+import eu.hansolo.tilesfx.skins.RadialChartTileSkin;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -24,6 +29,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.util.Pair;
 import javax.imageio.ImageIO;
 import net.hack.libs.GeoUtils;
@@ -121,9 +127,19 @@ public class RightAir extends Right{
         
         //Grapher2D grapher = new Grapher2D(image2);
         
-        Grapher2D grapher = new Grapher2D(image);
-        this.getChildren().add(grapher);
+        //Grapher2D grapher = new Grapher2D(image);
+        //this.getChildren().add(grapher);
         
+        Tile tile = new Tile(Tile.SkinType.DONUT_CHART);
+        tile.addChartData(new ChartData("CO", 48, Color.DARKGRAY));
+        tile.addChartData(new ChartData("SO2", 32, Color.DARKVIOLET));
+        tile.addChartData(new ChartData("NO2", 13, Color.DARKSLATEBLUE));
+        tile.addChartData(new ChartData("PM", 82, Color.DARKORANGE));
+        tile.addChartData(new ChartData("NONE", 120, Color.BLACK));
+        
+        tile.setPrefSize(400, 400);
+        
+        this.getChildren().add(tile);
         
         
         /*
