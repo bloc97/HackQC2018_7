@@ -68,6 +68,7 @@ public class RightAir extends Right{
         
         
         Image image = new Image(ClassLoader.getSystemClassLoader().getResourceAsStream("chaleur_3000_17438_24241.png"));
+        /*
         WritableImage image2 = new WritableImage((int)image.getWidth(), (int)image.getHeight());
         DayData data;
         try {
@@ -116,10 +117,11 @@ public class RightAir extends Right{
             }
         } catch (IOException ex) {
             Logger.getLogger(RightAir.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
         
+        //Grapher2D grapher = new Grapher2D(image2);
         
-        Grapher2D grapher = new Grapher2D(image2);
+        Grapher2D grapher = new Grapher2D(image);
         this.getChildren().add(grapher);
         
         
