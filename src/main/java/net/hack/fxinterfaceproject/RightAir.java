@@ -73,7 +73,7 @@ public class RightAir extends Right{
 
         
         
-        Image image = new Image(ClassLoader.getSystemClassLoader().getResourceAsStream("chaleur_3000_17438_24241.png"));
+        //Image image = new Image(ClassLoader.getSystemClassLoader().getResourceAsStream("chaleur_3000_17438_24241.png"));
         /*
         WritableImage image2 = new WritableImage((int)image.getWidth(), (int)image.getHeight());
         DayData data;

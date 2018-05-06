@@ -24,7 +24,8 @@ import javafx.stage.Stage;
  */
 public class Top extends Pane {
 
-    Label title = new Label("HackQc18");
+    Label title = new Label("GéoLit");
+    Label lit = new Label();
     Button buttonCancel = new Button("");
     Button buttonMini = new Button("");
     
@@ -37,6 +38,7 @@ public class Top extends Pane {
         Image cancel1 = new Image(ClassLoader.getSystemResourceAsStream("cancel1.png"));
         Image mini = new Image(ClassLoader.getSystemResourceAsStream("mini.png"));
         Image mini1 = new Image(ClassLoader.getSystemResourceAsStream("mini1.png"));
+        Image logo = new Image(ClassLoader.getSystemResourceAsStream("geolit.png"));
         
          title.setFont(Font.font("verdana", FontWeight.BOLD, 48));
          title.setTextFill(Color.web("#6ED0E0"));
@@ -129,7 +131,11 @@ public class Top extends Pane {
         buttonMini.setLayoutY(5);
         
         title.setLayoutX(10);
+        lit.setGraphic(new ImageView(logo));
+        lit.setLayoutX(195);
+        lit.setLayoutY(5);
         
+        this.getChildren().add(lit);
         this.getChildren().add(buttonCancel);
         this.getChildren().add(buttonMini);
         this.getChildren().add(title);
