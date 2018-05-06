@@ -6,9 +6,12 @@
 package net.hack.fxinterfaceproject;
 
 import java.util.Random;
+import javafx.event.EventHandler;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -27,9 +30,18 @@ public class InfoTree extends StackPane{
     String[] tipArray = new String[4];
     Random random = new Random(System.currentTimeMillis());
     
-    
+    Button btnInfo = new Button("");
     
     public InfoTree(){
+        
+        Image infoV = new Image(ClassLoader.getSystemResourceAsStream("infoVert.png"));
+        
+        btnInfo.setMaxSize(50, 50);
+        btnInfo.setStyle("-fx-background-color: transparent;");
+        btnInfo.setGraphic(new ImageView(infoV));
+        
+        btnInfo.setLayoutY(20);
+        btnInfo.setLayoutX(830);
         
         this.setMaxSize(1400, 90);//Était 1500 850
         this.setPrefSize(1400, 90);//Était 1500 850
@@ -45,12 +57,23 @@ public class InfoTree extends StackPane{
         
         int max = 3;
         int min = 0;
-        Text texteTemp = new Text(tipArray[(random.nextInt(max - min + 1) + min)]);
+        
+        
+        btnInfo.setOnMousePressed(new EventHandler<MouseEvent>() {
+            
+            @Override
+            public void handle(MouseEvent event) {
+                Text texteTemp = new Text(tipArray[(random.nextInt(max - min + 1) + min)]);
+            }
+            
+        });
         
         texteTemp.setFont(Font.font("verdana", 24));
         texteTemp.setFill(Color.WHITE);
         texteTemp.setTextAlignment(TextAlignment.CENTER);
 
+        
         this.getChildren().add(texteTemp);
+        this.getChildren().add(btnInfo);
     }
 }
