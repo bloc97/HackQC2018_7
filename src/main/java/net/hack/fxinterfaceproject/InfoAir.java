@@ -5,6 +5,7 @@
  */
 package net.hack.fxinterfaceproject;
 
+import java.util.Random;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -20,20 +21,30 @@ import javafx.scene.text.TextAlignment;
  */
 public class InfoAir extends StackPane{
     
-    Text texteAir = new Text("Selon l’Organisation mondiale de la Santé (OMS), 9 personnes sur 10 respiraient un air\n"
-            + " avec un taux élevé de polluants. De plus, l’exposition aux particules fines, qui endommage le système \n"
-            + " respiratoire et cardiovasculaire, est responsable d’environ 7 millions de morts chaque année.");
+    String[] tipArray = new String[4];
+    Random random = new Random(System.currentTimeMillis());
+     
     
     public InfoAir(){
         
+        tipArray[0] = ("Selon l’Organisation mondiale de la Santé (OMS), 9 personnes sur 10 respiraient un air\n"
+            + " avec un taux élevé de polluants. De plus, l’exposition aux particules fines, qui endommage le système \n"
+            + " respiratoire et cardiovasculaire, est responsable d’environ 7 millions de morts chaque année.");
+        tipArray[1] ="B";
+        tipArray[2] ="C";
+        tipArray[3] ="D";
         Image rose = new Image(ClassLoader.getSystemResourceAsStream("rose.png"));
         
         this.setMaxSize(1200, 150);//Était 1500 850
         this.setPrefSize(1200, 150);//Était 1500 850
         this.setStyle("-fx-background-color: #333333;");
         
+        int max = 3;
+        int min = 0;
+        Label texteAir = new Label(tipArray[(random.nextInt(max - min + 1) + min)]);
+        
         texteAir.setFont(Font.font("verdana", 24));
-        texteAir.setFill(Color.WHITE);
+        //texteAir.setFill(Color.WHITE);
         texteAir.setTextAlignment(TextAlignment.CENTER);
         
         this.getChildren().add(texteAir);
