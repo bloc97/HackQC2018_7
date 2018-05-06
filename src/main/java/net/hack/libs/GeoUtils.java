@@ -31,8 +31,8 @@ public class GeoUtils {
         double width = bottomRight.getKey() - x0;
         double height = bottomRight.getValue() - y0;
         
-        double xr = x/3000d;
-        double yr = y/3000d;
+        double xr = (17438d + x)/54435d;//0.320345d;
+        double yr = (24241d + y)/28614d;//0.847173d;
         
         double x1 = x0 + width * xr;
         double y1 = y0 + height * yr;
@@ -59,8 +59,8 @@ public class GeoUtils {
         double xr = (pairTest.getKey() - x0) / width;
         double yr = (pairTest.getValue() - y0) / height;
         
-        double x = xr * 3000;
-        double y = yr * 3000;
+        double x = (xr * 54435d) - 17438d;
+        double y = (yr * 28614d) - 24241d;
         
         return new Pair<>(x, y);
         
