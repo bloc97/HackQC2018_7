@@ -6,10 +6,6 @@
 package net.hack.fxinterfaceproject;
 
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
 
 /**
  *
@@ -20,14 +16,7 @@ public class Right extends Pane {
     
     
     public Right() {
-        
-        Text accueil = new Text("Bienvenue sur GéoLit!");
-        Text sousAccueil = new Text("L’application qui vous fait connaître l’évolution environnementale des quartiers vous entourant.");
-        
-        accueil.setFont(Font.font("verdana", 24));
-        accueil.setFill(Color.WHITE);
-        accueil.setTextAlignment(TextAlignment.CENTER);
-        
+
         this.setVisible(true);
         this.setLayoutX(95);
         this.setLayoutY(FinaleMaster.TOP_VGAP);
@@ -35,8 +24,6 @@ public class Right extends Pane {
         this.setPrefSize(1520, 850);//Était 1500 850
         this.setStyle("-fx-background-color: #1F1F1F;");
         
-        this.getChildren().add(accueil);
-        this.getChildren().add(sousAccueil);
     }
     
     

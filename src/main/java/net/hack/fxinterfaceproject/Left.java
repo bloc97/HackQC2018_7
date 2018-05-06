@@ -22,7 +22,7 @@ public class Left extends Pane{
     Button buttonTwo = new Button("");
     Button buttonThree = new Button("");
 
-    public Left(Right right,RightAir rightAir, RightTree rightTree, RightTemp rightTemp) {
+    public Left(RightAccueil rightAccueil,RightAir rightAir, RightTree rightTree, RightTemp rightTemp) {
         //consulte les codes dans Top.java
         
         Image air = new Image(ClassLoader.getSystemResourceAsStream("vent.png"));
@@ -46,7 +46,7 @@ public class Left extends Pane{
             
             @Override
             public void handle(MouseEvent event) {
-                right.setVisible(false);
+                rightAccueil.setVisible(false);
                 rightAir.setVisible(true);
                 rightTree.setVisible(false);
                 rightTemp.setVisible(false);
@@ -81,7 +81,7 @@ public class Left extends Pane{
             
             @Override
             public void handle(MouseEvent event) {
-                right.setVisible(false);
+                rightAccueil.setVisible(false);
                 rightAir.setVisible(false);
                 rightTree.setVisible(true);
                 rightTemp.setVisible(false);
@@ -114,7 +114,7 @@ public class Left extends Pane{
             
             @Override
             public void handle(MouseEvent event) {
-                right.setVisible(false);
+                rightAccueil.setVisible(false);
                 rightAir.setVisible(false);
                 rightTree.setVisible(false);
                 rightTemp.setVisible(true);
